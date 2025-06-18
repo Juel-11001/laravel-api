@@ -20,18 +20,20 @@ class TaskController extends Controller
 
     /**
      * Show the form for creating a new resource.
+     * we use api so don't need to create method.
      */
-    public function create()
-    {
-        //
-    }
+    // public function create()
+    // {
+    //     //
+    // }
 
     /**
      * Store a newly created resource in storage.
      */
     public function store(StoreTaskRequest $request)
     {
-        //
+        $task=Task::create($request->validated());
+        return TaskResource::make($task);
     }
 
     /**
